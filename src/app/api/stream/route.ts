@@ -1,5 +1,6 @@
 export async function GET() {
   try {
+    // TODO: Add in env variables
     const res = await fetch('http://localhost:3001/stream/start', {
       method: 'GET',
     });
@@ -20,6 +21,7 @@ export async function GET() {
 
 export async function POST() {
     try {
+        // TODO: Add in env variables
       const res = await fetch('http://localhost:3001/stream/stop', {
         method: 'POST',
       });

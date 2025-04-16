@@ -3,6 +3,7 @@ import { NextRequest } from 'next/server';
 export const dynamic = 'force-dynamic'; // this disables edge rendering
 
 export async function GET(req: NextRequest) {
+  // TODO: Add in env variables
   const response = await fetch('http://localhost:3001/stream', {
     headers: {
       Accept: 'text/event-stream',
