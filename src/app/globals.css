@@ -24,3 +24,12 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes flash {
+  0% { background-color: #fef08a; }
+  100% { background-color: transparent; }
+}
+
+.flash-change {
+  animation: flash 1.5s ease-out;
+}
