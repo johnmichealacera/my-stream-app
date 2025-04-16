@@ -4,7 +4,7 @@ export const dynamic = 'force-dynamic'; // this disables edge rendering
 
 export async function GET(req: NextRequest) {
   // TODO: Add in env variables
-  const response = await fetch('http://localhost:3001/stream', {
+  const response = await fetch(`${process.env.LIVE_STREAMING_SERVICE_URL}/stream`, {
     headers: {
       Accept: 'text/event-stream',
     },
