@@ -3,7 +3,7 @@ export async function GET() {
     // Wake up the streaming service first
   const res = await fetch(`${process.env.LIVE_STREAMING_SERVICE_URL}`);
     // Slight delay to give Render time to wake it up
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    // await new Promise((resolve) => setTimeout(resolve, 2000));
 
     // Then trigger your existing flow
   if (res?.status === 200) {
