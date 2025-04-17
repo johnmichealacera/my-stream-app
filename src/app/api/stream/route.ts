@@ -1,6 +1,12 @@
 export async function GET() {
   try {
-    // TODO: Add in env variables
+    // Wake up the streaming service first
+  const res = await fetch(`${process.env.LIVE_STREAMING_SERVICE_URL}`);
+    // Slight delay to give Render time to wake it up
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    // Then trigger your existing flow
+  if (res?.status === 200) {
     const res = await fetch(`${process.env.LIVE_STREAMING_SERVICE_URL}/stream/start`, {
       method: 'GET',
     });
@@ -12,11 +18,13 @@ export async function GET() {
     return new Response(JSON.stringify({ message: 'Stream started' }), {
       status: 200,
     });
+  }
   } catch (error) {
     return new Response(JSON.stringify({ error: 'Unable to start stream' }), {
       status: 500,
     });
   }
+  
 }
 
 export async function POST() {
