@@ -143,6 +143,9 @@ export default function StreamListener() {
     };
   }, []);
 
+  console.log('LIVE_STREAMING_SERVICE_URL', process.env.LIVE_STREAMING_SERVICE_URL);
+
+
   // if (!isServiceReady) {
   //   return (
   //     <div className="flex justify-center items-center h-screen flex-col text-center">
