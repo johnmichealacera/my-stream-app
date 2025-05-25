@@ -23,24 +23,24 @@ export default function StreamListener() {
 
   const [isServiceReady, setIsServiceReady] = useState(false);
 
-  useEffect(() => {
-    const checkService = async () => {
-      try {
-        const res = await fetch('/api/health-check', { method: 'GET' });
+  // useEffect(() => {
+  //   const checkService = async () => {
+  //     try {
+  //       const res = await fetch('/api/health-check', { method: 'GET' });
 
-        if (res.ok) {
-          setIsServiceReady(true);
-        } else {
-          throw new Error('Not ready');
-        }
-      } catch (err) {
-        console.log('Service not ready, retrying...');
-        setTimeout(checkService, 3000); // Retry every 3 seconds
-      }
-    };
+  //       if (res.ok) {
+  //         setIsServiceReady(true);
+  //       } else {
+  //         throw new Error('Not ready');
+  //       }
+  //     } catch (err) {
+  //       console.log('Service not ready, retrying...');
+  //       setTimeout(checkService, 3000); // Retry every 3 seconds
+  //     }
+  //   };
 
-    checkService();
-  }, []);
+  //   checkService();
+  // }, []);
 
 
   useEffect(() => {
