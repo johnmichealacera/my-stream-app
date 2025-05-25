@@ -144,6 +144,8 @@ export default function StreamListener() {
   }, []);
 
   console.log('LIVE_STREAMING_SERVICE_URL', process.env.LIVE_STREAMING_SERVICE_URL);
+  console.log("PUBLIC ENV:", process.env.NEXT_PUBLIC_LIVE_STREAMING_SERVICE_URL);
+
 
 
   // if (!isServiceReady) {
