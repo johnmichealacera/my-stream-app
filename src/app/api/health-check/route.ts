@@ -17,7 +17,7 @@ export async function GET() {
         status: 200,
       });
     } catch (error) {
-      return new Response(JSON.stringify({ error: 'Unable to start stream' }), {
+      return new Response(JSON.stringify({ error }), {
         status: 500,
       });
     }
