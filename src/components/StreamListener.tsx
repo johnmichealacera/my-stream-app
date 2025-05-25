@@ -23,24 +23,24 @@ export default function StreamListener() {
 
   const [isServiceReady, setIsServiceReady] = useState(false);
 
-  // useEffect(() => {
-  //   const checkService = async () => {
-  //     try {
-  //       const res = await fetch('/api/health-check', { method: 'GET' });
+  useEffect(() => {
+    const checkService = async () => {
+      try {
+        const res = await fetch('/api/health-check', { method: 'GET' });
 
-  //       if (res.ok) {
-  //         setIsServiceReady(true);
-  //       } else {
-  //         throw new Error('Not ready');
-  //       }
-  //     } catch (err) {
-  //       console.log('Service not ready, retrying...');
-  //       setTimeout(checkService, 3000); // Retry every 3 seconds
-  //     }
-  //   };
+        if (res.ok) {
+          setIsServiceReady(true);
+        } else {
+          throw new Error('Not ready');
+        }
+      } catch (err) {
+        console.log('Service not ready, retrying...');
+        setTimeout(checkService, 3000); // Retry every 3 seconds
+      }
+    };
 
-  //   checkService();
-  // }, []);
+    checkService();
+  }, []);
 
 
   useEffect(() => {
@@ -148,15 +148,15 @@ export default function StreamListener() {
 
 
 
-  // if (!isServiceReady) {
-  //   return (
-  //     <div className="flex justify-center items-center h-screen flex-col text-center">
-  //       <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500 border-opacity-50 mb-4"></div>
-  //       <p className="text-gray-600 text-lg">Waking up the streaming service on Render...</p>
-  //       <p className="text-sm text-gray-400">(This might take a few seconds)</p>
-  //     </div>
-  //   );
-  // }  
+  if (!isServiceReady) {
+    return (
+      <div className="flex justify-center items-center h-screen flex-col text-center">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500 border-opacity-50 mb-4"></div>
+        <p className="text-gray-600 text-lg">Waking up the streaming service on Render...</p>
+        <p className="text-sm text-gray-400">(This might take a few seconds)</p>
+      </div>
+    );
+  }  
   return (
     <div className="max-w-3xl mx-auto mt-6 bg-white shadow-lg rounded-2xl p-6 space-y-4">
       <div className="p-4 flex gap-4">
